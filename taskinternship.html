@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RFID Blocking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    .rfid-card {
+      margin-top: 30px;
+      padding: 20px;
+      border: 2px dashed #aaa;
+      border-radius: 10px;
+      background-color: #f9f9ff;
+    }
+
+    .rfid-card img {
+      width: 150px;
+      margin-bottom: 15px;
+    }
+
+    #status {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .off {
+      color: red;
+      font-weight: bold;
+    }
+
+    .on {
+      color: green;
+      font-weight: bold;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background-color: #2ecc71;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    button:hover {
+      background-color: #27ae60;
+    }
+
+    #moreInfo {
+      margin-top: 30px;
+      text-align: left;
+      background-color: #eef2f7;
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+    }
+
+    #moreInfo h2 {
+      color: #34495e;
+    }
+
+    #moreInfo ul {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>RFID Blocking</h1>
+    <p>
+      The radiofrequency identifying tags present in credit and debit cards can be used by card scanners for stealing sensitive data in the name of quick contactless payments.
+    </p>
+    <p>
+      RFID blocking refers to the process of identifying and restricting unauthorized scanning of cards, passports, and other sensitive documents.
+    </p>
+
+    <div class="rfid-card">
+      <img src="https://www.ipvanish.com/wp-content/uploads/2022/07/rfid-blocking_IPV-blog-1024x683.png" alt="RFID Chip">
+      <p id="status">Status: <span class="off">RFID Blocker OFF</span></p>
+      <button onclick="toggleRFID()">Toggle RFID Blocker</button>
+    </div>
+
+    <button onclick="toggleInfo()">Learn More About RFID Security</button>
+
+    <div id="moreInfo">
+      <h2>What is RFID?</h2>
+      <p>RFID stands for Radio Frequency Identification. It's a technology that uses electromagnetic fields to identify and track tags attached to objects, such as credit cards, passports, and ID cards.</p>
+
+      <h2>How Does RFID Work?</h2>
+      <ul>
+        <li>RFID tags contain a small chip and antenna.</li>
+        <li>A scanner emits radio waves which power the tag and read its data.</li>
+        <li>This allows contactless communication between the card and the reader.</li>
+      </ul>
+
+      <h2>Security Issues with RFID</h2>
+      <ul>
+        <li><strong>Skimming:</strong> Attackers can steal card data without touching it.</li>
+        <li><strong>Eavesdropping:</strong> Sensitive data can be intercepted during transmission.</li>
+        <li><strong>Cloning:</strong> Cloned RFID tags can be used to impersonate your card or ID.</li>
+      </ul>
+
+      <h2>How RFID Blocking Helps</h2>
+      <ul>
+        <li>Blocks radio signals from reaching your cards.</li>
+        <li>Prevents unauthorized scanning in public places.</li>
+        <li>Ensures your data remains secure from hidden scanners.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    let isBlocked = false;
+    function toggleRFID() {
+      const statusElement = document.getElementById("status").querySelector("span");
+      if (isBlocked) {
+        statusElement.textContent = "RFID Blocker OFF";
+        statusElement.className = "off";
+      } else {
+        statusElement.textContent = "RFID Blocker ON";
+        statusElement.className = "on";
+      }
+      isBlocked = !isBlocked;
+    }
+
+    function toggleInfo() {
+      const info = document.getElementById("moreInfo");
+      info.style.display = (info.style.display === "none") ? "block" : "none";
+    }
+  </script>
+</body>
+</html>
